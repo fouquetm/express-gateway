@@ -8,7 +8,6 @@ services:
       - ./Config:/var/lib/eg
     ports:
       - "8080:8080"
-      - "9876:9876"
 
   actor:
     build: ./Actor
@@ -20,4 +19,4 @@ services:
     build: ./Movie
     container_name: movie
     expose:
-      - 8000
+      - 3000

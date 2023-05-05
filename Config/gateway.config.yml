@@ -19,7 +19,7 @@ serviceEndpoints:
   actorService:
     url: "http://actor:3000"
   movieService:
-    url: "http://movie:8000"
+    url: "http://movie:3000"
 policies:
   - basic-auth
   - cors

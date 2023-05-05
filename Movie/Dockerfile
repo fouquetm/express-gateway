@@ -16,4 +16,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 3000
-CMD [ "node", "movie.js" ]
+CMD [ "node", "index.js" ]
