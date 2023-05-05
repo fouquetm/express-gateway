@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  express-gateway:
+    image: express-gateway
+    container_name: express-gateway
+    volumes:
+      - ./Config:/var/lib/eg
+    ports:
+      - "8080:8080"
+      - "9876:9876"
+
+  actor:
+    build: ./Actor
+    container_name: actor
+    ports:
+      - "3000:3000"
+
+  movie:
+    build: ./Movie
+    container_name: movie
+    ports:
+      - "8000:8000"
