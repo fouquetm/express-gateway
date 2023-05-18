@@ -6,8 +6,8 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./tyk.conf:/opt/tyk-gateway/tyk.conf
-      - ./apps:/opt/tyk-gateway/apps
+      - ./tyk/tyk.conf:/opt/tyk-gateway/tyk.conf
+      - ./tyk/apps:/opt/tyk-gateway/apps
     environment:
       - TYK_GW_SECRET=key12345
     depends_on:
