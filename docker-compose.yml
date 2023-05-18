@@ -1,22 +1,29 @@
 version: '3'
 
 services:
-  api-gateway:
-    image: express-gateway
-    container_name: express-gateway
-    volumes:
-      - ./Config:/var/lib/eg
+  tyk:
+    image: tykio/tyk-gateway
     ports:
-      - "8080:8080"
+      - 8080:8080
+    volumes:
+      - ./tyk.conf:/opt/tyk-gateway/tyk.conf
+      - ./apps:/opt/tyk-gateway/apps
+    environment:
+      - TYK_GW_SECRET=key12345
+    depends_on:
+      - actor
+      - movie
+      - redis
+
+  redis:
+    image: redis:latest
 
   actor:
     build: ./Actor
-    container_name: actor
     expose:
       - 3000
 
   movie:
     build: ./Movie
-    container_name: movie
     expose:
       - 3000
